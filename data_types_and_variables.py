@@ -20,13 +20,16 @@ Total_price = (days_with_movies["The Little Mermaid"] + days_with_movies["Brothe
 Total_price
 
 
-# In[5]:
+# In[1]:
 
 
 google = 400
 amazon = 380
 facebook = 350
-payment = 10 * facebook + 6 * google + 4 * amazon
+hours_fb = 10
+hours_google = 6
+hours_amzn = 4
+payment = hours_fb * facebook + hours_google * google + hours_amzn * amazon
 print(payment)
 
 
@@ -59,7 +62,7 @@ can_apply_offer
 
 username = 'codeup'
 password = 'notastrongpassword'
-print(len(password) > 5)
+print(len(password) >= 5)
 print(len(username) < 20)
 print(username != password)
 print(username[0] and username[-1] and password[0] and password[-1] not in ' ')

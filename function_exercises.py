@@ -42,8 +42,7 @@ is_vowel('A')
 
 
 #3
-#is_consonant defines a single parameter, x (string of one character), and determines whether the
-#letter is a consonant (returns Boolean True or False)
+#is_consonant defines a single parameter, x (string of one character), and returns a Boolean True or False
 def is_consonant(x):
     #a letter is either a consonant or a vowel; check to see if the input is a vowel
     if is_vowel(x):
@@ -82,7 +81,7 @@ capitalize_consonant_words('success')
 def calculate_tip(percentage, bill):
     #set identifier 'tip' to the value of the product for the percentage (float 1) and the bill (float 2) 
     tip = bill * percentage
-    #return the tip, only need float to have two decimal places
+    #we just want the tip (rounded to two decimal places)
     return round(tip, 2)
 
 calculate_tip(.22, 18.24)
@@ -94,7 +93,7 @@ calculate_tip(.22, 18.24)
 #6 
 #apply_discount defines two parameters, two floats, and returns a float value
 def apply_discount(price, disc):
-    #return the-- rounded to two decimal places-- discounted price (price minus discount) as a float
+    #return the discounted price (price minus discount) as a float, rounded to two decimals
     return round(price * (1 - disc), 2)
 
 apply_discount(24.99, .8)
@@ -113,7 +112,7 @@ def handle_commas(string):
         #if the character is a number, add to the variable (string)
         if c.isdigit():
             c_handled += c
-        #if the character is a comma, add an underscore in its place
+        #if the character is a comma, add an underscore in its stead
         elif c == ',':
             c_handled += '_'
         #if the character is a decimal, add to the string
@@ -134,8 +133,9 @@ def get_letter_grade(x):
     #check if the integer is above the value of 89, return string value 'A' if it is
     if x > 89:
         return 'A'
-    #since we are checking if the input is above a value, and we are starting from the top, we can just check if
-    #the input is above values below the first if clause value and return the corresponding string value
+    #since we are checking if the input is greater than a certain value, and python reads top-to-bottom, we can 
+    #just check if the input is above a value less than the previous if-clause value and return the 
+    #appropriate/ corresponding string value
     elif x > 79:
         return 'B'
     elif x > 69:
@@ -161,19 +161,20 @@ def remove_vowels(string):
         if is_consonant(l):
             #only add vowel-opposite characters to the string variable
             v_removed += l
-    #return the string variable with only consonants
+    #return the string variable with characters that are not vowels
     return v_removed
 
 remove_vowels('Nnnnooooooooooo!!!!')
 
 
-# In[22]:
+# In[24]:
 
 
 #10
 #normalize_name defines a single parameter, a string, and returns a string value
 def normalize_name(string):
-    #strip string of all leading or trailing white space and lowercase all characters
+    #assign a variable to: the input string stripped of all leading or trailing white space, as well as with all
+    #lowercased characters
     f_name = string.strip().lower() 
     #assign a variable to an empty string
     e_name = ''
@@ -183,22 +184,22 @@ def normalize_name(string):
     for char in f_name:
         #include space so we don't have random underscores at the beginning or end if original string input includes
         #invalid characters for python-identifier compliance at the beginning or end of original input and spaces
-        #inbetween those invalid characters and valid ones
+        #inbetween those invalid characters and valid ones. check to see if characters are in approved list
         if char in 'abcdefghijklmnopqrstuvwxyz_0123456789 ':
             #add all the approved characters to the first empty string variable
             e_name += char
-    #strip all the leftover whitespace
+    #assign a variable to the result stripped of all the leftover leading or trailing whitespace
     g_name = e_name.strip()
-    #start another loop to get a cleaner string
+    #start another for loop to get a cleaner string
     for char in g_name:
-        #check to see if character is a space
-        if char == ' ':
-            #add an underscore to the second empty string variable in the stead of a space
-            end_game += '_'
         #check to see if character is py-id compliant
         if char in 'abcdefghijklmnopqrstuvwxyz_0123456789':
-            #add py-id compliant characters to second string variable
+            #add py-id compliant characters to second empty string variable
             end_game += char
+        #check to see if character is a space
+        if char == ' ':
+            #add an underscore to the second string variable in a space's stead
+            end_game += '_'
     #return the python-identifier-compliant second string variable value
     return end_game
 
@@ -214,6 +215,7 @@ print(normalize_name('% Completed'))
 #Example code
 #cumulative_sum([1, 1, 1]) returns [1, 2, 3]
 #cumulative_sum([1, 2, 3, 4]) returns [1, 3, 6, 10]
+
 #interpretation
 #if A = [1, 1, 1], then cumulative_sum(A) = [A[0], (A[0] + A[1]), (A[0] + A[1] + A[2])]
 #cumulative_sum(A) = [sum(A[:1], sum(A[:2]), sum(A[:3])]
@@ -222,9 +224,10 @@ print(normalize_name('% Completed'))
 
 #cumulative_sum defines a single parameter, a list, and returns a list
 def cumulative_sum(L):
-    #return a list of numbers that are the sum of the number in the original list plus all of the numbers prior to
-    #this number in the index. use a for loop to run through the range of the length of the list (index of list) and
-    #generate sums for the list. use zero-indexing to format the individual sums in the list
+    #return a list of numbers that are each the sum of the number in the input list plus all of the numbers prior to
+    #this number in the index. use a for loop to run through the index of the list and generate sums for each item 
+    #in the original input list for the return list. use python's zero-indexing to format the individual sums in 
+    #the list
     return [sum(L[:n + 1]) for n in range(len(L))]
 
 c = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]

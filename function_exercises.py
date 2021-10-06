@@ -218,7 +218,7 @@ print(normalize_name('% Completed'))
 
 #interpretation
 #if A = [1, 1, 1], then cumulative_sum(A) = [A[0], (A[0] + A[1]), (A[0] + A[1] + A[2])]
-#cumulative_sum(A) = [sum(A[:1], sum(A[:2]), sum(A[:3])]
+#cumulative_sum(A) = [sum(A[:1]), sum(A[:2]), sum(A[:3])]
 #cumulative_sum(A) = [sum(A[:(0+1)]), sum(A[:(1+1)]), sum(A[:(2+1)])]
 #range(len(A)) = range(0, 3) --> which is zero to two (0, 1, 2)--> which is the complete index for A
 

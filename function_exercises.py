@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[4]:
+# In[ ]:
 
 
 #1
@@ -20,7 +20,7 @@ def is_two(x):
 is_two('2')
 
 
-# In[2]:
+# In[3]:
 
 
 #2
@@ -38,7 +38,7 @@ def is_vowel(x):
 is_vowel('A')
 
 
-# In[10]:
+# In[ ]:
 
 
 #3
@@ -55,7 +55,7 @@ def is_consonant(x):
 is_consonant('B')
 
 
-# In[8]:
+# In[ ]:
 
 
 #4
@@ -73,7 +73,7 @@ def capitalize_consonant_words(string):
 capitalize_consonant_words('success')
 
 
-# In[11]:
+# In[ ]:
 
 
 #5
@@ -87,7 +87,7 @@ def calculate_tip(percentage, bill):
 calculate_tip(.22, 18.24)
 
 
-# In[12]:
+# In[ ]:
 
 
 #6 
@@ -99,7 +99,7 @@ def apply_discount(price, disc):
 apply_discount(24.99, .8)
 
 
-# In[13]:
+# In[4]:
 
 
 #7
@@ -124,7 +124,7 @@ def handle_commas(string):
 handle_commas('12,345,678.9')
 
 
-# In[15]:
+# In[ ]:
 
 
 #8
@@ -148,7 +148,7 @@ def get_letter_grade(x):
 get_letter_grade(69)
 
 
-# In[19]:
+# In[ ]:
 
 
 #9
@@ -167,12 +167,16 @@ def remove_vowels(string):
 remove_vowels('Nnnnooooooooooo!!!!')
 
 
-# In[24]:
+# In[2]:
 
 
 #10
 #normalize_name defines a single parameter, a string, and returns a string value
 def normalize_name(string):
+    #python identifiers can not start with numbers. Loop through string until first character of string is not 
+    #a number
+    while string[0].isalpha() == False:
+        string = string[1:]
     #assign a variable to: the input string stripped of all leading or trailing white space, as well as with all
     #lowercased characters
     f_name = string.strip().lower() 
@@ -203,12 +207,13 @@ def normalize_name(string):
     #return the python-identifier-compliant second string variable value
     return end_game
 
-print(normalize_name('First name'))
-print(normalize_name('Name'))
-print(normalize_name('% Completed'))
+if __name__ == '__main__':
+    print(normalize_name('First name'))
+    print(normalize_name('Name'))
+    print(normalize_name('% Completed'))
 
 
-# In[23]:
+# In[ ]:
 
 
 #11
@@ -219,15 +224,14 @@ print(normalize_name('% Completed'))
 #interpretation
 #if A = [1, 1, 1], then cumulative_sum(A) = [A[0], (A[0] + A[1]), (A[0] + A[1] + A[2])]
 #cumulative_sum(A) = [sum(A[:1]), sum(A[:2]), sum(A[:3])]
-#cumulative_sum(A) = [sum(A[:(0+1)]), sum(A[:(1+1)]), sum(A[:(2+1)])]
+#cumulative_sum(A) = [sum(A[:0 + 1]), sum(A[:1 + 1]), sum(A[:2 + 1])]
 #range(len(A)) = range(0, 3) --> which is zero to two (0, 1, 2)--> which is the complete index for A
 
 #cumulative_sum defines a single parameter, a list, and returns a list
 def cumulative_sum(L):
     #return a list of numbers that are each the sum of the number in the input list plus all of the numbers prior to
-    #this number in the index. use a for loop to run through the index of the list and generate sums for each item 
-    #in the original input list for the return list. use python's zero-indexing to format the individual sums in 
-    #the list
+    #this number in the index. use python's zero-indexing to format the individual sums for the return list. 
+    #use a for loop to run through the index of the input list and generate sums for each item on the return list.
     return [sum(L[:n + 1]) for n in range(len(L))]
 
 c = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]

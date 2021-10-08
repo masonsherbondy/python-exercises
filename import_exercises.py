@@ -183,5 +183,23 @@ def unread_messages(x):
         unread_int[n] = int(unread_int[n])
     return sum(unread_int)
 
-unread_messages(profiles)
+if __name__ == '__main__':
+    print(unread_messages(profiles))
+
+
+#alternatively
+def pull_number_from_a_string_with_one_number(string):
+    number = ''
+    for n in string:
+        if n.isdigit():
+            number += n
+    return int(number)
+
+def total_unread_messages(x):
+    unread = []
+    for user in x:
+        unread.append(pull_number_from_a_string_with_one_number(user['greeting']))
+    return sum(unread)
+
+total_unread_messages(profiles)
 

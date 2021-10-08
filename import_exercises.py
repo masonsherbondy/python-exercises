@@ -176,15 +176,14 @@ max(fruit_comparison)
 min(fruit_comparison)
 
 
-# In[15]:
+# In[17]:
 
 
 #alternatively
-fruits =[]
-for user in profiles:
-    fruits.append(user['favoriteFruit'])
-max(fruits)
-min(fruits)
+fruits = [user['favoriteFruit'] for user in profiles]
+
+max(fruits, key = fruits.count)
+min(fruits, key = fruits.count)
 
 
 # In[ ]:

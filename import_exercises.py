@@ -28,11 +28,20 @@ import itertools as it
 
 
 #Exercise 2a
-z = it.permutations('abc123')
+#How many different ways can you combine the letters from "abc" with the numbers 1, 2, and 3?
+#struggled to intepret this question and did not realize in a timely manner that I needed more clarification
+
+#product('abc', '123') gives 9 results: A1 A2 A3 B1 B2 B3 C1 C2 C3
+#product('123', 'abc') also gives the same amount of results: 1A 2A 3A 1B 2B 3B 1C 2C 3C (these are mirror combos)
+z = it.product('abc', '123')
+#set a counter to zero
 count = 0
+#start a for loop to count all the items 
 for g in z:
+    #add 1 to the count for every item
     count +=1
-count
+#get twice the amount of the count to account for 'different ways to combine' (reversed order combinations/ mirror combos)
+count * 2
 
 
 # In[ ]:
@@ -93,8 +102,8 @@ count
 
 #Exercise 3iii
 count = 0
-for users in profiles:
-    if not users['isActive']:
+for user in profiles:
+    if not user['isActive']:
         count += 1
 count
 

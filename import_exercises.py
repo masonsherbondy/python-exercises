@@ -29,7 +29,6 @@ import itertools as it
 
 #Exercise 2a
 #How many different ways can you combine the letters from "abc" with the numbers 1, 2, and 3?
-#struggled to intepret this question and did not realize in a timely manner that I needed more clarification
 
 #product('abc', '123') gives 9 results: A1 A2 A3 B1 B2 B3 C1 C2 C3
 #product('123', 'abc') also gives the same amount of results: 1A 2A 3A 1B 2B 3B 1C 2C 3C (these are mirror combos)
@@ -66,7 +65,7 @@ for p in y:
 count
 
 
-# In[ ]:
+# In[1]:
 
 
 #Exercise 3
@@ -74,7 +73,7 @@ import json
 json.load(open('profiles.json'))
 
 
-# In[ ]:
+# In[2]:
 
 
 #Exercise 3i
@@ -86,7 +85,7 @@ for user in range(len(profiles)):
 count
 
 
-# In[ ]:
+# In[3]:
 
 
 #Exercise 3ii
@@ -97,7 +96,7 @@ for user in profiles:
 count
 
 
-# In[ ]:
+# In[4]:
 
 
 #Exercise 3iii
@@ -108,7 +107,7 @@ for user in profiles:
 count
 
 
-# In[ ]:
+# In[5]:
 
 
 #Exercise 3iv
@@ -119,7 +118,7 @@ for user in profiles:
 grand_total
 
 
-# In[ ]:
+# In[6]:
 
 
 #Exercise 3v
@@ -130,7 +129,7 @@ avg = grand_total / len(profiles)
 avg
 
 
-# In[ ]:
+# In[7]:
 
 
 #Exercise 3vi
@@ -139,7 +138,7 @@ lowest_balance
 lowest_balance['name']
 
 
-# In[ ]:
+# In[8]:
 
 
 #Exercise 3vii
@@ -147,13 +146,13 @@ highest_balance = max(profiles, key = lambda user: user['balance'])
 highest_balance['name']
 
 
-# In[ ]:
+# In[9]:
 
 
 #Exercise 3viii & 3ix
 fruits = []
 for user in profiles:
-    fruits += user['favoriteFruit']
+    fruits.append(user['favoriteFruit'])
 if __name__ == '__main__':
     print(fruits)
 strawberries = 0
@@ -175,6 +174,17 @@ fruit_comparison = {
 
 max(fruit_comparison)
 min(fruit_comparison)
+
+
+# In[15]:
+
+
+#alternatively
+fruits =[]
+for user in profiles:
+    fruits.append(user['favoriteFruit'])
+max(fruits)
+min(fruits)
 
 
 # In[ ]:

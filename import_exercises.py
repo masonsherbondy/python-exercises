@@ -145,7 +145,8 @@ highest_balance['name']
 fruits = []
 for user in profiles:
     fruits += user['favoriteFruit']
-print(fruits)
+if __name__ == '__main__':
+    print(fruits)
 strawberries = 0
 apples = 0
 bananas = 0
@@ -177,7 +178,7 @@ def unread_messages(x):
     unread = []
     for user in profiles:
         unread.append(re.findall(r'\d+', user['greeting']))
-    unread_int = list(chain(*unread))
+    unread_int = list(chain.from_iterable(unread))
     for n in range(len(unread_int)):
         unread_int[n] = int(unread_int[n])
     return sum(unread_int)

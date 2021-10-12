@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[ ]:
+# In[1]:
 
 
 #Exercise 1b
@@ -9,7 +9,7 @@ from function_exercises import calculate_tip
 print(calculate_tip(.35, 20))
 
 
-# In[ ]:
+# In[2]:
 
 
 #Exercise 1c
@@ -17,14 +17,14 @@ from function_exercises import get_letter_grade as glg
 glg(82)
 
 
-# In[ ]:
+# In[3]:
 
 
 #Exercise 2
 import itertools as it
 
 
-# In[ ]:
+# In[4]:
 
 
 #Exercise 2a
@@ -43,7 +43,7 @@ for g in z:
 count * 2
 
 
-# In[ ]:
+# In[5]:
 
 
 #Exercise 2b
@@ -54,7 +54,7 @@ for c in x:
 count
 
 
-# In[ ]:
+# In[6]:
 
 
 #Exercise 2c
@@ -65,7 +65,7 @@ for p in y:
 count
 
 
-# In[1]:
+# In[7]:
 
 
 #Exercise 3
@@ -73,7 +73,7 @@ import json
 json.load(open('profiles.json'))
 
 
-# In[2]:
+# In[33]:
 
 
 #Exercise 3i
@@ -85,29 +85,33 @@ for user in range(len(profiles)):
 count
 
 
-# In[3]:
+# In[18]:
 
 
 #Exercise 3ii
 count = 0
+if __name__ == '__main__':
+    print(type(user['isActive']))
 for user in profiles:
     if user['isActive']:
         count += 1
 count
 
 
-# In[4]:
+# In[19]:
 
 
 #Exercise 3iii
 count = 0
+if __name__ == '__main__':
+    print(type(user['isActive']))
 for user in profiles:
     if not user['isActive']:
         count += 1
 count
 
 
-# In[5]:
+# In[11]:
 
 
 #Exercise 3iv
@@ -118,18 +122,18 @@ for user in profiles:
 grand_total
 
 
-# In[6]:
+# In[20]:
 
 
 #Exercise 3v
 grand_total = 0
 for user in profiles:
     grand_total += hc(user['balance'])
-avg = grand_total / len(profiles)
-avg
+avg_balance = round(grand_total / len(profiles), 2)
+avg_balance
 
 
-# In[7]:
+# In[13]:
 
 
 #Exercise 3vi
@@ -138,15 +142,16 @@ lowest_balance
 lowest_balance['name']
 
 
-# In[8]:
+# In[14]:
 
 
 #Exercise 3vii
 highest_balance = max(profiles, key = lambda user: user['balance'])
+highest_balance
 highest_balance['name']
 
 
-# In[9]:
+# In[15]:
 
 
 #Exercise 3viii & 3ix
@@ -176,17 +181,17 @@ max(fruit_comparison)
 min(fruit_comparison)
 
 
-# In[17]:
+# In[16]:
 
 
-#alternatively
+#alternatively for 3viii & 3ix
 fruits = [user['favoriteFruit'] for user in profiles]
 
 max(fruits, key = fruits.count)
 min(fruits, key = fruits.count)
 
 
-# In[ ]:
+# In[17]:
 
 
 #Exercise 3x
@@ -206,17 +211,10 @@ if __name__ == '__main__':
 
 
 #alternatively
-def pull_number_from_a_string_with_one_number(string):
-    number = ''
-    for n in string:
-        if n.isdigit():
-            number += n
-    return int(number)
+from mason_functions import pull_a_number_from_a_string_with_one_number as pn
 
 def total_unread_messages(x):
-    unread = []
-    for user in x:
-        unread.append(pull_number_from_a_string_with_one_number(user['greeting']))
+    unread = [pn(user['greeting']) for user in x]
     return sum(unread)
 
 total_unread_messages(profiles)

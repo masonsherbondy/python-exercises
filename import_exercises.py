@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[ ]:
 
 
 #Exercise 1b
@@ -9,7 +9,7 @@ from function_exercises import calculate_tip
 print(calculate_tip(.35, 20))
 
 
-# In[2]:
+# In[ ]:
 
 
 #Exercise 1c
@@ -17,14 +17,14 @@ from function_exercises import get_letter_grade as glg
 glg(82)
 
 
-# In[3]:
+# In[ ]:
 
 
 #Exercise 2
 import itertools as it
 
 
-# In[4]:
+# In[ ]:
 
 
 #Exercise 2a
@@ -43,7 +43,7 @@ for g in z:
 count * 2
 
 
-# In[5]:
+# In[ ]:
 
 
 #Exercise 2b
@@ -54,7 +54,7 @@ for c in x:
 count
 
 
-# In[6]:
+# In[ ]:
 
 
 #Exercise 2c
@@ -65,7 +65,7 @@ for p in y:
 count
 
 
-# In[7]:
+# In[ ]:
 
 
 #Exercise 3
@@ -73,7 +73,7 @@ import json
 json.load(open('profiles.json'))
 
 
-# In[33]:
+# In[ ]:
 
 
 #Exercise 3i
@@ -85,7 +85,7 @@ for user in range(len(profiles)):
 count
 
 
-# In[18]:
+# In[ ]:
 
 
 #Exercise 3ii
@@ -98,7 +98,7 @@ for user in profiles:
 count
 
 
-# In[19]:
+# In[ ]:
 
 
 #Exercise 3iii
@@ -111,7 +111,7 @@ for user in profiles:
 count
 
 
-# In[11]:
+# In[ ]:
 
 
 #Exercise 3iv
@@ -122,7 +122,7 @@ for user in profiles:
 grand_total
 
 
-# In[20]:
+# In[ ]:
 
 
 #Exercise 3v
@@ -133,7 +133,7 @@ avg_balance = round(grand_total / len(profiles), 2)
 avg_balance
 
 
-# In[13]:
+# In[ ]:
 
 
 #Exercise 3vi
@@ -142,7 +142,7 @@ lowest_balance
 lowest_balance['name']
 
 
-# In[14]:
+# In[ ]:
 
 
 #Exercise 3vii
@@ -151,7 +151,7 @@ highest_balance
 highest_balance['name']
 
 
-# In[15]:
+# In[ ]:
 
 
 #Exercise 3viii & 3ix
@@ -181,7 +181,7 @@ max(fruit_comparison)
 min(fruit_comparison)
 
 
-# In[16]:
+# In[ ]:
 
 
 #alternatively for 3viii & 3ix
@@ -191,7 +191,7 @@ max(fruits, key = fruits.count)
 min(fruits, key = fruits.count)
 
 
-# In[17]:
+# In[ ]:
 
 
 #Exercise 3x

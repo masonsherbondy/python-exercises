@@ -34,7 +34,7 @@ def is_vowel(x):
     else:
         #return bool False if not
         return False
-   
+    
 is_vowel('A')
 
 
@@ -112,9 +112,6 @@ def handle_commas(string):
         #if the character is a number, add to the variable (string)
         if c.isdigit():
             c_handled += c
-        #if the character is a comma, add an underscore in its stead
-        elif c == ',':
-            c_handled += '_'
         #if the character is a decimal, add to the string
         elif c == '.':
             c_handled += '.'
@@ -174,9 +171,9 @@ remove_vowels('Nnnnooooooooooo!!!!')
 #normalize_name defines a single parameter, a string, and returns a string value
 def normalize_name(string):
     #python identifiers can not start with numbers. Loop through string until first character of string is not 
-    #a number
+    #a number. move numbers to the back
     while string[0].isalpha() == False:
-        string = string[1:]
+        string = string[1:] + string[0]
     #assign a variable to: the input string stripped of all leading or trailing white space, as well as with all
     #lowercased characters
     f_name = string.strip().lower() 
@@ -211,12 +208,12 @@ if __name__ == '__main__':
     print(normalize_name('First name'))
     print(normalize_name('Name'))
     print(normalize_name('% Completed'))
+    print(normalize_name('1man'))
 
 
 # In[ ]:
 
 
-#11
 #Example code
 #cumulative_sum([1, 1, 1]) returns [1, 2, 3]
 #cumulative_sum([1, 2, 3, 4]) returns [1, 3, 6, 10]
@@ -229,7 +226,7 @@ if __name__ == '__main__':
 
 #cumulative_sum defines a single parameter, a list, and returns a list
 def cumulative_sum(L):
-    #return a list of numbers that are each the sum of the number in the input list plus all of the numbers prior to
+    #return a list of numbers that are each the sum of a number in the input list plus all of the numbers prior to
     #this number in the index. use python's zero-indexing to format the individual sums for the return list. 
     #use a for loop to run through the index of the input list and generate sums for each item on the return list.
     return [sum(L[:n + 1]) for n in range(len(L))]
@@ -242,6 +239,7 @@ cumulative_sum(c)
 
 
 #Mason's personal functions
+#import mason_functions as mf
 
 
 # In[ ]:
@@ -254,6 +252,7 @@ def pull_a_number_from_a_string_with_one_number(string):
         if char.isdigit():
             number += char
     return int(number)
+
 pull_a_number_from_a_string_with_one_number('Yo! You have 38 unread messages!')
 #good to alias it as 'pn'
 #can copy and paste below after '#' marker:
@@ -263,5 +262,89 @@ pull_a_number_from_a_string_with_one_number('Yo! You have 38 unread messages!')
 # In[ ]:
 
 
+#get an average of one list (take one paramater and return a float)
+def average(n):
+    return sum(n) / len(n)
 
+a = [1, 2, 3, 4,]
+average(a)
+
+
+# In[ ]:
+
+
+#move the first item in an sequence to the last position of a sequence (take one parameter and return a list)
+def first_to_last(s):
+    #assign a variable to the first item of the sequence
+    x = s[0]
+    #assign a variable to the sequence starting with the second item and add the first item to the end of the sequence
+    s = s[1:] + [x]
+    #return the new sequence with the first item at the end and the second item in front
+    return s
+
+first_to_last([1, 2, 3, 4, 5,])
+
+
+# In[ ]:
+
+
+#get the median of a list of numbers (take one parameter and return a float)
+def median(x):
+    #sort the list so function code can slice into an appropriate data set
+    x.sort()
+    #assign a variable to the total number of items in the list (how many data points do we have?)
+    l = len(x)
+    #assign a variable to half of the total of numbers(data points) in the list. If the list is even or odd, the
+    #value of this variable an integer to represent how many times the value two goes into the total of numbers,
+    #i.e., 9 // 2 = 4 and 8 // 2 = 4
+    n = l // 2
+    #introduce an 'if' conditional to determine if the total number of datapoints is odd
+    if l % 2 == 1:
+        #if it is, return the middle datapoint
+        return x[n]
+    #otherwise, just return the value in the middle of the two middlest points
+    return (x[n - 1] + x[n]) / 2 
+
+#condensed
+#def median(x):
+    #x.sort()
+    #l = len(x)
+    #n = l // 2
+    #if l % 2 == 1:
+        #return x[n]
+    #return (x[n - 1] + x[n]) / 2
+
+if __name__ == '__main__':
+    print(median([1, 2, 70, 80, 90, 100]))
+    print(median([1, 2, 3, 4, 5]))
+    print(median([4, 8, 1, 2, 38]))
+    print(median([1, 100, 2, 90]))
+
+
+# In[ ]:
+
+
+#count some vowels m8
+def count_vowels(string):
+    count = 0
+    for x in string:
+        if is_vowel(x):
+            count += 1
+    return count
+
+count_vowels('Hadouken!')
+
+
+# In[ ]:
+
+
+#count some consonants m9
+def count_consonants(string):
+    count = 0
+    for x in string:
+        if is_consonant(x):
+            count += 1
+    return count
+
+count_consonants('Shoryuken!')
 

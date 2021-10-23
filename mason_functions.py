@@ -44,13 +44,13 @@ is_vowel('A')
 #3
 #is_consonant defines a single parameter, x (string of one character), and returns a Boolean True or False
 def is_consonant(x):
-    #a letter is either a consonant or a vowel; check to see if the input is a vowel
-    if is_vowel(x):
-        #return bool False if it is a vowel
-        return False
-    else:
-        #return bool True if it is not a vowel
+    #check to see if the input character is in this complete list of consonants
+    if x.lower() in 'bcdfghjklmnpqrstvwxyz':
+        #return bool True if it is a consonant
         return True
+    else:
+        #return bool False if it is not a consonant
+        return False
     
 is_consonant('B')
 
@@ -347,4 +347,32 @@ def count_consonants(string):
     return count
 
 count_consonants('Shoryuken!')
+
+
+# In[ ]:
+
+
+#count letters in a word
+def count_characters(string):
+    count = 0
+    for x in string:
+        if x.isalnum() or x == ' ':
+            count += 1
+    return count
+
+count_characters('Tatsumaki Senpukyaku!')
+
+
+# In[ ]:
+
+
+#Is it true, Brutus? Ay tu?
+def count_Trues(list):
+    count = 0
+    for bool in list:
+        if bool == True:
+            count += 1
+    return count
+
+count_Trues([True, False, True, False, True, False, True])
 

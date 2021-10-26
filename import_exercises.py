@@ -90,8 +90,6 @@ count
 
 #Exercise 3ii
 count = 0
-if __name__ == '__main__':
-    print(type(user['isActive']))
 for user in profiles:
     if user['isActive']:
         count += 1
@@ -171,14 +169,14 @@ for user in profiles:
     else:
         bananas += 1
 
-fruit_comparison = {
+fruit_counts = {
     'strawberries': strawberries,
     'apples': apples,
     'bananas': bananas
 }
 
-max(fruit_comparison)
-min(fruit_comparison)
+max(fruit_counts)
+min(fruit_counts)
 
 
 # In[ ]:
@@ -211,10 +209,10 @@ if __name__ == '__main__':
 
 
 #alternatively
-from mason_functions import pull_a_number_from_a_string_with_one_number as pn
+from mason_functions import pull_an_integer_from_a_string_with_one_integer as pin
 
 def total_unread_messages(x):
-    unread = [pn(user['greeting']) for user in x]
+    unread = [pin(user['greeting']) for user in x]
     return sum(unread)
 
 total_unread_messages(profiles)
